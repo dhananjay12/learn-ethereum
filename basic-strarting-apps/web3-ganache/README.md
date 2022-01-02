@@ -9,7 +9,7 @@ Run the code
 node index.js
 ```
 
-Increment nonce from 0 to 1 as you run the index.js.
+Increment nonce from 0 to 1 and so on as you run the index.js to send a new txn.
 
 The value send is in wei. So the balance might not change in the UI because of the small denomination.
 
