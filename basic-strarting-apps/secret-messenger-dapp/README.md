@@ -68,6 +68,16 @@ It will attemp to find metamask and ask you to connect with an account. Choose a
 
 Switch between remix and the app to see the value and Ganache UI to see the transactions.
 
-Other links:
+### Deploy in test net
+
+For that you have to use and account in any of the test Ethereum chain.
+
+Deploy your app using remix using that just like the way before. Copy the contract address and put in `contactAddress` variable in JS.
+
+In web3 HttpProvider use the `Infura` api to connect to the test net.
+
+Open the app and connect to the test net account in metamask and make the transactions. You can check the txn in etherscan.
+
+## Other links
 
 Metamask docs - https://docs.metamask.io/guide/getting-started.html
