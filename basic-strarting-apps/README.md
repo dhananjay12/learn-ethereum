@@ -1,4 +1,4 @@
 ## Apps
 
-* [Simple web3 app using Ganache](./web3-ganache/README.md)
-* [Secret messenger](./secret-messenger-dapp/README.md)
+* [Simple web3 app using Ganache](./web3-ganache)
+* [Secret messenger](./secret-messenger-dapp)
