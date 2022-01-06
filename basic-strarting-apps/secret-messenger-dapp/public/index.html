@@ -180,16 +180,11 @@
 
             contractFirst.methods.setMessage(input_value).send({ from: currentAccount }).then(function (result) {
                 console.log(result);
-                $('#getValue').html(input_value)
             });
 
         }
     </script>
     <script>
-        $.getJSON("build/contracts/FirstContract.json", function (result) {
-            abi = result.abi
-        });
-
         $(document).ready(function () {
             m = detectMetaMask()
             if (m) {
