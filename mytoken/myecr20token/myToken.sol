@@ -4,8 +4,8 @@ pragma solidity >=0.7.0 <0.9.0;
 // Implementation of https://eips.ethereum.org/EIPS/eip-20
 contract myToken {
 
-    string public constant name = "Udacity Token";
-    string public constant symbol = "UDC";
+    string public constant name = "My Awesome Token";
+    string public constant symbol = "MAT";
     uint8 public constant decimals = 18;  // 18 is the most common number of decimal places
     uint _totalSupply;
 
