@@ -59,3 +59,10 @@ Run app:
 node server.js
 ```
 
+
+### Testing
+
+To test, make sure you have Ganache runnning in the backgroud. Just run
+```
+truffle test
+```
