@@ -1,6 +1,6 @@
 ## Simple contract with Truffle
 
-Create a folder and run `npm init` and `truffle init`. Trufflw will create couple of folders with sample files. 
+Create a folder and run `npm init` and `truffle init`. Truffle will create couple of folders with sample files. 
 One is a sample solidity contract and the other how to deploy it. `truffle-config.js` contains its configuration. 
 Just run `truffle compile` and see the build directory.
 

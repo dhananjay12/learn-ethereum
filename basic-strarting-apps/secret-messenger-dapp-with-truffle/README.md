@@ -10,7 +10,7 @@ Install truffle globally
 npm install -g truffle
 ```
 
-and the project folder was created using `truffle init`. It will create the extra folders you see. Put your contracts in contract folder.
+and create the project folder. Then do `truffle init` inside it. It will create the extra folders. Put your contracts in contract folder.
 
 Configure the local ganache server in `truffle-config.js`:
 
