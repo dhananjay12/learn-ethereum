@@ -18,7 +18,7 @@ contract Lottery{
     // declaring the receive() function that is necessary to receive ETH
     receive () payable external{
         // each player sends exactly 0.1 ETH. Without any specific suffic default is wei. Use a covnerter to check
-        require(msg.value == 0.1 ether);
+        require(msg.value == 0.1 ether, "Invalid entry fee provided. It must be .1 eth");
         // appending the player to the players array
         players.push(payable(msg.sender));
     }
@@ -28,6 +28,11 @@ contract Lottery{
         // only the manager is allowed to call it
         require(msg.sender == manager);
         return address(this).balance;
+    }
+
+    // returns number of players
+    function getNumberOfPlayers() public view returns(uint count) {
+        return players.length;
     }
     
     // helper function that returns a big random integer
@@ -39,8 +44,8 @@ contract Lottery{
     // selecting the winner
     function pickWinner() public{
         // only the manager can pick a winner if there are at least 3 players in the lottery
-        require(msg.sender == manager);
-        require (players.length >= 3);
+        require(msg.sender == manager, "Only owner can call pickWinner");
+        require (players.length >= 3, "Minimum 3 people must be in lottery to proceed");
         
         uint r = random();
         address payable winner;

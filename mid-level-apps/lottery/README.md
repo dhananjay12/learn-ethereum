@@ -10,3 +10,14 @@ select the winner.
 * The contract will transfer the entire balance to the winner’s address and the lottery is
 reset and ready for the next round.
 
+## Project setup
+
+After creating folder, did a `truffle init` and `npm init` (for other js test dependecies).
+
+## Truffle
+
+Run tests
+
+```
+truffle test
+```

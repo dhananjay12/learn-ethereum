@@ -1,0 +1,18 @@
+{
+  "name": "lottery",
+  "version": "1.0.0",
+  "description": "* The lottery starts by accepting ETH transactions. Anyone having an Ethereum wallet can send a fixed amount of 0.1 ETH to the contract’s address. * The players send ETH directly to the contract address and their Ethereum address is registered. A user can send more transactions having more chances to win. * There is a manager, the account that deploys and controls the contract. * At some point, if there are at least 3 playesrs, he can pick a random winner from the players list. Only the manager is allowed to see the contract balance and to randomly select the winner. * The contract will transfer the entire balance to the winner’s address and the lottery is reset and ready for the next round.",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@openzeppelin/test-helpers": "^0.5.15",
+    "web3": "^1.7.0"
+  }
+}
