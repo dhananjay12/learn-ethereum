@@ -15,7 +15,7 @@ contract myToken {
     // Owner of the account approves the allowance of another account
     // Create an allowance mapping
     // The first key is the owner of the tokens
-    // In the 2nd mapping, its says who can spend on your behalf, and how many
+    // In the 2nd mapping, its says who can spend on your behalf, and how many`56
     // So, we are creating a mapping, where the kep is an address,
     // The value is further a mapping of address to amount
     mapping(address => mapping (address => uint256)) allowance;
