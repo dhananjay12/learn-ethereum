@@ -1,5 +1,22 @@
-// SPDX-License-Identifier: MIT
+//SPDX-License-Identifier: GPL-3.0
+ 
 pragma solidity >=0.5.0 <0.9.0;
+ 
+ 
+// this contract will deploy the Auction contract
+contract AuctionCreator{
+    // declaring a dynamic array with addresses of deployed contracts
+    Auction[] public auctions; 
+    
+    // declaring the function that will deploy contract Auction
+    function createAuction() public{
+        
+        // passing msg.sender to the constructor of Auction 
+        Auction newAuction = new Auction(payable(msg.sender)); 
+        auctions.push(newAuction); // adding the address of the instance to the dynamic array
+    }
+}
+ 
  
  
 contract Auction{
@@ -7,13 +24,11 @@ contract Auction{
     uint public startBlock;
     uint public endBlock;
     string public ipfsHash;
- 
     
     enum State {Started, Running, Ended, Canceled}
     State public auctionState;
     
     uint public highestBindingBid;
-    
     
     address payable public highestBidder;
     mapping(address => uint) public bids;
@@ -21,16 +36,17 @@ contract Auction{
     
     //the owner can finalize the auction and get the highestBindingBid only once
     bool public ownerFinalized = false;
+    
  
-    constructor(){
-        owner = payable(msg.sender);
+    constructor(address payable eoa){
+        owner = eoa;
         auctionState = State.Running;
         
         startBlock = block.number;
         endBlock = startBlock + 3;
       
         ipfsHash = "";
-        bidIncrement = 1000000000000000000; // bidding in multiple of ETH
+        bidIncrement = 1000000000000000000;
     }
     
     // declaring function modifiers
@@ -64,8 +80,9 @@ contract Auction{
         }
     }
     
-    // only the owner can cancel the Auction before the Auction has ended
-    function cancelAuction() public beforeEnd onlyOwner{
+    
+    // only the owner can cancel the Auction
+    function cancelAuction() public onlyOwner{
         auctionState = State.Canceled;
     }
     
@@ -96,12 +113,11 @@ contract Auction{
     }
     
     
-    
     function finalizeAuction() public{
        // the auction has been Canceled or Ended
        require(auctionState == State.Canceled || block.number > endBlock); 
        
-       // only the owner or a bidder can finalize the auction
+       // only the owner or a bidder can cancel the auction
        require(msg.sender == owner || bids[msg.sender] > 0);
        
        // the recipient will get the value
@@ -116,7 +132,7 @@ contract Auction{
                recipient = owner;
                value = highestBindingBid;
                
-               //the owner can finalize the auction and get the highestBindingBid only once
+                //the owner can finalize the auction and get the highestBindingBid only once
                ownerFinalized = true; 
            }else{// another user (not the owner) finalizes the auction
                if (msg.sender == highestBidder){
@@ -134,6 +150,5 @@ contract Auction{
        
        //sends value to the recipient
        recipient.transfer(value);
-     
-    } 
+    }
 }
