@@ -48,6 +48,7 @@ contract myToken {
     // Increases the balance of "to" account
     // Emits Transfer event
     function transfer(address to, uint tokens) public returns (bool success) {
+        require(balances[msg.sender] >= tokens);
         balances[msg.sender] = balances[msg.sender] - tokens;
         balances[to] = balances[to] + tokens;
         emit Transfer(msg.sender, to, tokens);
