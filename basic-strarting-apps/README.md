@@ -4,3 +4,4 @@
 * [Secret messenger](./secret-messenger-dapp)
 * [Secret messenger with Truffle](./secret-messenger-dapp-with-truffle)
 * Check any of the truffle boxes - https://trufflesuite.com/boxes/index.html
+* [Using Hardhat](./using-hardhat)
