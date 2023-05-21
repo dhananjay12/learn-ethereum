@@ -7,6 +7,7 @@ Try running some of the following tasks:
 * To test the contract run `npx hardhat test`
 * To deploy the contract to your localhost network do the following:
     * `npx hardhat node`
+    * `node scripts/deploy.js` will return dex.json and token.json which contain the ABIs.
     * `npx hardhat run --network localhost ./script/deploy.js`
 
 ## Using the Frontend
